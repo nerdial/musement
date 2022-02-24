@@ -12,14 +12,10 @@ WORKDIR /app
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-RUN curl -sS https://get.symfony.com/cli/installer | bash
-
-RUN mv /root/.symfony/bin/symfony /usr/local/bin/symfony
-
 ADD / /app
 
 RUN composer install
 
-RUN /usr/local/bin/symfony serve --port 9000
+CMD ["php", "-S", "0.0.0.0:9000", "-t", "public"]
 
 EXPOSE 9000
