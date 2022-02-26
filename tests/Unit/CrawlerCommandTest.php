@@ -38,8 +38,6 @@ class CrawlerCommandTest extends KernelTestCase
         $cache->delete('cities');
 
         $cache->get('cities', function (ItemInterface $item) {
-            $item->expiresAfter(3600);
-
             return $this->citiesWithForecastCached;
         });
 
