@@ -16,7 +16,6 @@ class UrlServiceTest extends TestCase
         $actual = $urlService->getCitiesUrl();
 
         $this->assertSame($expected, $actual);
-
     }
 
     public function testWeatherUrlGenerator(): void
@@ -35,6 +34,5 @@ class UrlServiceTest extends TestCase
         $actual = $urlService->getWeatherUrl($latitude, $longitude, $days);
 
         $this->assertSame($expected, $actual);
-
     }
 }
