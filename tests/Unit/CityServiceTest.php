@@ -43,7 +43,7 @@ class CityServiceTest extends KernelTestCase
         $this->citiesWithForecastCached = new ArrayCollection([
             [
                 'name' => 'Tehran',
-                'days' => new ArrayCollection(['Suuny', 'Sunny']),
+                'days' => new ArrayCollection(['Sunny', 'Sunny']),
             ],
             [
                 'name' => 'London',
