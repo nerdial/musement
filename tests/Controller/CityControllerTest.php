@@ -8,7 +8,6 @@ use Symfony\Contracts\Cache\ItemInterface;
 
 class CityControllerTest extends WebTestCase
 {
-
     protected ArrayCollection $citiesWithForecastCached;
 
     public function setUp(): void
@@ -47,6 +46,5 @@ class CityControllerTest extends WebTestCase
 
         $this->assertSelectorTextContains('td', 'Tehran');
         $this->assertSelectorTextNotContains('td', 'Amsterdam');
-
     }
 }
