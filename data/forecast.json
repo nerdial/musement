@@ -1,0 +1,23 @@
+{
+  "location": {
+    "name": "Amsterdam"
+  },
+  "forecast": {
+    "forecastday": [
+      {
+        "day": {
+          "condition": {
+            "text": "Moderate rain"
+          }
+        }
+      },
+      {
+        "day": {
+          "condition": {
+            "text": "Sunny"
+          }
+        }
+      }
+    ]
+  }
+}
