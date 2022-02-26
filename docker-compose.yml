@@ -10,7 +10,10 @@ services:
       - db
     environment:
       XDEBUG_MODE: debug,coverage
-
+      DATABASE_URL: "mysql://musement_user:password@db:3306/musement"
+      MUSEMENT_API_URL: 'https://api.musement.com'
+      WEATHER_API_URL: 'https://api.weatherapi.com'
+      WEATHER_API_TOKEN: 'ef11613d2bc9432c9af212308222402'
   db:
     image: mysql:latest
     restart: always
