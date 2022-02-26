@@ -12,7 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Entity(repositoryClass: WeatherRepository::class)]
 #[ApiResource(
     collectionOperations: ['POST'],
-    itemOperations: [],
+    itemOperations: ['GET'],
 )]
 class Weather
 {
