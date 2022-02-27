@@ -54,4 +54,13 @@ class CrawlerCommandTest extends KernelTestCase
 
         $commandTester->assertCommandIsSuccessful();
     }
+
+    protected function tearDown(): void
+    {
+        $kernel = self::bootKernel();
+        $cache = $kernel->getContainer()->get('cache.app');
+        $cache->delete('cities');
+
+        parent::tearDown();
+    }
 }

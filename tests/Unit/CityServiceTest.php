@@ -111,4 +111,13 @@ class CityServiceTest extends KernelTestCase
 
         $this->assertEquals($this->citiesWithForecastCached, $actual);
     }
+
+    protected function tearDown(): void
+    {
+        $kernel = self::bootKernel();
+        $cache = $kernel->getContainer()->get('cache.app');
+        $cache->delete('cities');
+
+        parent::tearDown();
+    }
 }
