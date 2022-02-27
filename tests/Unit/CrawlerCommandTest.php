@@ -49,7 +49,7 @@ class CrawlerCommandTest extends KernelTestCase
 
         $this->assertStringContainsString('Processed city Tehran | Sunny - Sunny', $output);
 
-        $this->assertStringContainsString('Processed city London | Moderate rain - Moderate rain',
+        $this->assertStringContainsString('Processed city London | Moderate rain - Sunny',
             $output);
 
         $commandTester->assertCommandIsSuccessful();
