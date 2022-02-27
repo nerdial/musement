@@ -8,6 +8,10 @@ use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\Console\Tester\CommandTester;
 use Symfony\Contracts\Cache\ItemInterface;
 
+/**
+ * @internal
+ * @coversNothing
+ */
 class CrawlerCommandTest extends KernelTestCase
 {
     protected ArrayCollection $citiesWithForecastCached;
@@ -26,6 +30,15 @@ class CrawlerCommandTest extends KernelTestCase
         ]);
 
         parent::setUp();
+    }
+
+    protected function tearDown(): void
+    {
+        $kernel = self::bootKernel();
+        $cache = $kernel->getContainer()->get('cache.app');
+        $cache->delete('cities');
+
+        parent::tearDown();
     }
 
     public function testIfCommandPrintsCorrectly(): void
@@ -49,18 +62,11 @@ class CrawlerCommandTest extends KernelTestCase
 
         $this->assertStringContainsString('Processed city Tehran | Sunny - Sunny', $output);
 
-        $this->assertStringContainsString('Processed city London | Moderate rain - Sunny',
-            $output);
+        $this->assertStringContainsString(
+            'Processed city London | Moderate rain - Sunny',
+            $output
+        );
 
         $commandTester->assertCommandIsSuccessful();
-    }
-
-    protected function tearDown(): void
-    {
-        $kernel = self::bootKernel();
-        $cache = $kernel->getContainer()->get('cache.app');
-        $cache->delete('cities');
-
-        parent::tearDown();
     }
 }

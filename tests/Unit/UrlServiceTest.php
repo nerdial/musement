@@ -5,6 +5,10 @@ namespace App\Tests\Unit;
 use App\Service\UrlService;
 use PHPUnit\Framework\TestCase;
 
+/**
+ * @internal
+ * @coversNothing
+ */
 class UrlServiceTest extends TestCase
 {
     public function testCityUrlGenerator(): void
@@ -29,7 +33,7 @@ class UrlServiceTest extends TestCase
         $longitude = 51.33;
         $days = 2;
 
-        $expected = "$baseUrl/v1/forecast.json?key=$token&q=$latitude,$longitude &days=$days";
+        $expected = "{$baseUrl}/v1/forecast.json?key={$token}&q={$latitude},{$longitude} &days={$days}";
 
         $actual = $urlService->getWeatherUrl($latitude, $longitude, $days);
 

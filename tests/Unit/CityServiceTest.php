@@ -8,6 +8,10 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Contracts\Cache\ItemInterface;
 
+/**
+ * @internal
+ * @coversNothing
+ */
 class CityServiceTest extends KernelTestCase
 {
     protected ArrayCollection $cities;
@@ -54,6 +58,15 @@ class CityServiceTest extends KernelTestCase
         parent::setUp();
     }
 
+    protected function tearDown(): void
+    {
+        $kernel = self::bootKernel();
+        $cache = $kernel->getContainer()->get('cache.app');
+        $cache->delete('cities');
+
+        parent::tearDown();
+    }
+
     public function testCallCitiesApiWithoutCache(): void
     {
         $kernel = self::bootKernel();
@@ -64,9 +77,11 @@ class CityServiceTest extends KernelTestCase
 
         $apiService->expects($this->any())
             ->method('callCitiesApi')
-            ->willReturn($this->cities);
+            ->willReturn($this->cities)
+        ;
         $apiService->method('callForecastApi')
-            ->willReturn($this->citiesWithForecast);
+            ->willReturn($this->citiesWithForecast)
+        ;
 
         $cache->delete('cities');
 
@@ -90,9 +105,11 @@ class CityServiceTest extends KernelTestCase
 
         $apiService->expects($this->any())
             ->method('callCitiesApi')
-            ->willReturn($this->cities);
+            ->willReturn($this->cities)
+        ;
         $apiService->method('callForecastApi')
-            ->willReturn($this->citiesWithForecast);
+            ->willReturn($this->citiesWithForecast)
+        ;
 
         $cache->delete('cities');
 
@@ -110,14 +127,5 @@ class CityServiceTest extends KernelTestCase
         $this->assertNotEmpty($actual->toArray());
 
         $this->assertEquals($this->citiesWithForecastCached, $actual);
-    }
-
-    protected function tearDown(): void
-    {
-        $kernel = self::bootKernel();
-        $cache = $kernel->getContainer()->get('cache.app');
-        $cache->delete('cities');
-
-        parent::tearDown();
     }
 }

@@ -21,7 +21,8 @@ class CrawlerCommand extends Command
     {
         $this
             ->setHelp('This command calls forecast api 
-            and print the weather of each city into stdout');
+            and print the weather of each city into stdout')
+        ;
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
@@ -32,7 +33,7 @@ class CrawlerCommand extends Command
             $cityName = $city['name'];
             $today = $city['days'][0];
             $tomorrow = $city['days'][1];
-            $output->writeln("<info>Processed city $cityName | $today - $tomorrow </>");
+            $output->writeln("<info>Processed city {$cityName} | {$today} - {$tomorrow} </>");
             $output->writeln('-------------------------------------------------------');
         }
 

@@ -8,7 +8,7 @@ class UrlService
     {
         $baseUrl = $_ENV['MUSEMENT_API_URL'];
 
-        return "$baseUrl/api/v3/cities/";
+        return "{$baseUrl}/api/v3/cities/";
     }
 
     public function getWeatherUrl(string $latitude, string $longitude, int $days = 2): string
@@ -16,6 +16,6 @@ class UrlService
         $baseUrl = $_ENV['WEATHER_API_URL'];
         $token = $_ENV['WEATHER_API_TOKEN'];
 
-        return "$baseUrl/v1/forecast.json?key=$token&q=$latitude,$longitude &days=$days";
+        return "{$baseUrl}/v1/forecast.json?key={$token}&q={$latitude},{$longitude} &days={$days}";
     }
 }
