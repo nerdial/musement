@@ -9,6 +9,12 @@ services:
     depends_on:
       - db
     environment:
+      APP_ENV: dev
+      KERNEL_CLASS: 'App\Kernel'
+      APP_SECRET: '$ecretf0rt3st'
+      SYMFONY_DEPRECATIONS_HELPER: 999999
+      PANTHER_APP_ENV: anther
+      PANTHER_ERROR_SCREENSHOT_DIR: ./var/error-screenshots
       XDEBUG_MODE: debug,coverage
       DATABASE_URL: "mysql://musement_user:password@db:3306/musement"
       MUSEMENT_API_URL: 'https://api.musement.com'
