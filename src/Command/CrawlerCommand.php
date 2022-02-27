@@ -31,7 +31,7 @@ class CrawlerCommand extends Command
         foreach ($cities as $city) {
             $cityName = $city['name'];
             $today = $city['days'][0];
-            $tomorrow = $city['days'][0];
+            $tomorrow = $city['days'][1];
             $output->writeln("<info>Processed city $cityName | $today - $tomorrow </>");
             $output->writeln('-------------------------------------------------------');
         }
