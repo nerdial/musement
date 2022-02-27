@@ -8,7 +8,6 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Contracts\Cache\ItemInterface;
 
-
 class CityServiceTest extends KernelTestCase
 {
     protected ArrayCollection $cities;

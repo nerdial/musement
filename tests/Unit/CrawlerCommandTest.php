@@ -8,7 +8,6 @@ use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\Console\Tester\CommandTester;
 use Symfony\Contracts\Cache\ItemInterface;
 
-
 class CrawlerCommandTest extends KernelTestCase
 {
     protected ArrayCollection $citiesWithForecastCached;

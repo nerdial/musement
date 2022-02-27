@@ -9,7 +9,6 @@ use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\HttpClient\MockHttpClient;
 use Symfony\Component\HttpClient\Response\MockResponse;
 
-
 class ApiServiceTest extends KernelTestCase
 {
     protected function setUp(): void

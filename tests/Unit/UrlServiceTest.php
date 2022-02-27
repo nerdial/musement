@@ -5,7 +5,6 @@ namespace App\Tests\Unit;
 use App\Service\UrlService;
 use PHPUnit\Framework\TestCase;
 
-
 class UrlServiceTest extends TestCase
 {
     public function testCityUrlGenerator(): void
